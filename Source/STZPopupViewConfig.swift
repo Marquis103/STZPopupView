@@ -12,26 +12,26 @@ import UIKit
 Show Animation type
 */
 public enum STZPopupShowAnimation {
-    case None
-    case FadeIn
-    case SlideInFromTop
-    case SlideInFromBottom
-    case SlideInFromLeft
-    case SlideInFromRight
-    case Custom // Need implements 'showCustomAnimation'
+    case none
+    case fadeIn
+    case slideInFromTop
+    case slideInFromBottom
+    case slideInFromLeft
+    case slideInFromRight
+    case custom // Need implements 'showCustomAnimation'
 }
 
 /**
 Dismiss Animation
 */
 public enum STZPopupDismissAnimation {
-    case None
-    case FadeOut
-    case SlideOutToTop
-    case SlideOutToBottom
-    case SlideOutToLeft
-    case SlideOutToRight
-    case Custom // Need implements 'dismissCustomAnimation'
+    case none
+    case fadeOut
+    case slideOutToTop
+    case slideOutToBottom
+    case slideOutToLeft
+    case slideOutToRight
+    case custom // Need implements 'dismissCustomAnimation'
 }
 
 /**
@@ -49,10 +49,10 @@ public class STZPopupViewConfig {
     public var overlayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 
     /// Show animation type.
-    public var showAnimation = STZPopupShowAnimation.FadeIn
+    public var showAnimation = STZPopupShowAnimation.fadeIn
 
     /// Dismiss animation type.
-    public var dismissAnimation = STZPopupDismissAnimation.FadeOut
+    public var dismissAnimation = STZPopupDismissAnimation.fadeOut
 
     /// Clouser show animation is completed.
     /// Pass the popup view to argument.
