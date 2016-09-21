@@ -21,7 +21,7 @@ extension UIViewController {
     // MARK: - Property
     
     /// Popup target view
-    private var targetView: UIView {
+    fileprivate var targetView: UIView {
         var viewController = self
         while let parentViewController = viewController.parent {
             viewController = parentViewController
@@ -30,7 +30,7 @@ extension UIViewController {
     }
     
     /// Popup conteiner view
-    private var containerView: UIView? {
+    fileprivate var containerView: UIView? {
         get {
             return objc_getAssociatedObject(self, &containerViewAssociationKey) as? UIView
         }
@@ -40,7 +40,7 @@ extension UIViewController {
     }
     
     /// Popup view
-    private var popupView: UIView? {
+    fileprivate var popupView: UIView? {
         get {
             return objc_getAssociatedObject(self, &popupViewAssociationKey) as? UIView
         }
@@ -50,7 +50,7 @@ extension UIViewController {
     }
     
     /// Popup config
-    private var config: STZPopupViewConfig? {
+    fileprivate var config: STZPopupViewConfig? {
         get {
             return objc_getAssociatedObject(self, &configAssociationKey) as? STZPopupViewConfig
         }
@@ -98,7 +98,7 @@ extension UIViewController {
         showAnimation()
     }
 
-    private func showAnimation() {
+    fileprivate func showAnimation() {
         if let config = config {
             switch (config.showAnimation) {
             case .none:
@@ -121,7 +121,7 @@ extension UIViewController {
         }
     }
 
-    private func completionShowAnimation(_ finished: Bool) {
+    fileprivate func completionShowAnimation(_ finished: Bool) {
         if let completion = config?.showCompletion, let popupView = popupView {
             completion(popupView)
         }
@@ -136,7 +136,7 @@ extension UIViewController {
         dismissAnimation()
     }
 
-    private func completionDismissAnimation(_ finished: Bool) {
+    fileprivate func completionDismissAnimation(_ finished: Bool) {
         if let completion = config?.dismissCompletion, let popupView =  popupView {
             completion(popupView)
         }
@@ -147,7 +147,7 @@ extension UIViewController {
         config = nil
     }
     
-    private func dismissAnimation() {
+    fileprivate func dismissAnimation() {
         if let config = config {
             switch (config.dismissAnimation) {
             case .none:
@@ -172,7 +172,7 @@ extension UIViewController {
     
     // MARK: - Show Animation
     
-    private func fadeIn() {
+    fileprivate func fadeIn() {
         if let containerView = containerView {
             containerView.alpha = 0
             UIView.animate(withDuration: 0.2, animations: {
@@ -181,7 +181,7 @@ extension UIViewController {
         }
     }
 
-    private func slideInFromTop() {
+    fileprivate func slideInFromTop() {
         if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
@@ -194,7 +194,7 @@ extension UIViewController {
         }
     }
 
-    private func slideInFromBottom() {
+    fileprivate func slideInFromBottom() {
         if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
@@ -207,7 +207,7 @@ extension UIViewController {
         }
     }
 
-    private func slideInFromLeft() {
+    fileprivate func slideInFromLeft() {
         if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
@@ -220,7 +220,7 @@ extension UIViewController {
         }
     }
 
-    private func slideInFromRight() {
+    fileprivate func slideInFromRight() {
         if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
@@ -235,7 +235,7 @@ extension UIViewController {
 
     // MARK: - Dismiss Animation
     
-    private func fadeOut() {
+    fileprivate func fadeOut() {
         if let containerView = containerView {
             UIView.animate(withDuration: 0.2, animations: {
                 containerView.alpha = 0
@@ -243,7 +243,7 @@ extension UIViewController {
         }
     }
 
-    private func slideOutToTop() {
+    fileprivate func slideOutToTop() {
         if let _ = containerView, let popupView = popupView {
             UIView.animate(withDuration: 0.3, animations: {
                 var frame = popupView.frame
@@ -253,7 +253,7 @@ extension UIViewController {
         }
     }
 
-    private func slideOutToBottom() {
+    fileprivate func slideOutToBottom() {
         if let containerView = containerView, let popupView = popupView {
             UIView.animate(withDuration: 0.3, animations: {
                 var frame = popupView.frame
@@ -263,7 +263,7 @@ extension UIViewController {
         }
     }
 
-    private func slideOutToLeft() {
+    fileprivate func slideOutToLeft() {
         if let _ = containerView, let popupView = popupView {
             UIView.animate(withDuration: 0.3, animations: {
                 var frame = popupView.frame
@@ -273,7 +273,7 @@ extension UIViewController {
         }
     }
 
-    private func slideOutToRight() {
+    fileprivate func slideOutToRight() {
         if let containerView = containerView, let popupView = popupView {
             UIView.animate(withDuration: 0.3, animations: {
                 var frame = popupView.frame
